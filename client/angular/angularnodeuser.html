@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Angular Node MongoDB Example</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/angularnodecontroller.js"></script>
+</head>
+<body ng-controller="UserListCtrl">
+ 
+ <div class="container-fluid">
+    <div class="row-fluid">
+		  <div class="span2">
+			<!--Sidebar content-->
+			Search: <input ng-model="user">
+			<div class="span10">
+				<!--Body content-->
+				<ul class="users">
+				  <li ng-repeat="user in users | filter:user ">
+					{{user.name}}
+				  </li>
+				</ul>
+			  </div>
+		  </div>
+		  <div class="span10">
+			<form name="myform" id="myform1" ng-submit="save()">
+				<fieldset>
+					<legend>New User</legend>
+					<div class="control-group">
+						<center><input type="text" placeholder="User…" ng-model="username" size=50 required/></center>
+						<center><input type="text" placeholder="Password…" ng-model="password" size=50 required/></center>
+						<center><input type="text" placeholder="Email…" ng-model="email" size=50 required/></center>
+					</div>
+				</fieldset>
+				<p>
+					<div><center><button type="submit" >Save now...</button></center></div>
+				</p>
+			</form>
+		</div>
+    </div>
+  </div>
+</body>
+</html>
